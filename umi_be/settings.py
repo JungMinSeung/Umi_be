@@ -81,8 +81,13 @@ WSGI_APPLICATION = 'umi_be.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE' : 'django.db.backends.mysql',
+        'HOST' : '54.180.104.163',
+        'NAME' : 'sora_db',
+        'USER' : 'root',
+        'PASSWORD' : 'admin123!',
+        'PORT' : '3306',
+        'OPTIONS' : {'charset' : 'utf8mb4'},
     }
 }
 

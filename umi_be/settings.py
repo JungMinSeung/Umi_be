@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-dom%2-^^3w5b)qz9ffwcr*q)=(n7bb(rl&7t@3^$7goygvvb_o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,8 +81,13 @@ WSGI_APPLICATION = 'umi_be.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE' : 'django.db.backends.mysql',
+        'HOST' : '54.180.104.163',
+        'NAME' : 'sora_db',
+        'USER' : 'root',
+        'PASSWORD' : 'admin123!',
+        'PORT' : '3306',
+        'OPTIONS' : {'charset' : 'utf8mb4'},
     }
 }
 

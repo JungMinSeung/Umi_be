@@ -10,6 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+# this import for use mysql
+import pymysql
+pymysql.install_as_MySQLdb()
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +29,7 @@ SECRET_KEY = 'django-insecure-dom%2-^^3w5b)qz9ffwcr*q)=(n7bb(rl&7t@3^$7goygvvb_o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'login',
 ]
 
 REST_FRAMEWORK = {
@@ -81,8 +86,13 @@ WSGI_APPLICATION = 'umi_be.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE' : 'django.db.backends.mysql',
+        'HOST' : '3.38.6.103',
+        'NAME' : 'sora_db',
+        'USER' : 'root',
+        'PASSWORD' : 'admin123!',
+        'PORT' : '3306',
+        'OPTIONS' : {'charset' : 'utf8mb4'},
     }
 }
 

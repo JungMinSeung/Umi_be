@@ -20,7 +20,7 @@ class AppLogin(APIView):
         
 class RegistUser(APIView):
     def post(self, request):
-        serializer = LoginUserSerializer(data=request.data)
+        serializer = LoginUserSerializer(request.data)
         
         if LoginUser.objects.filter(user_id=serializer.data["user_id"]).exists():
             user = LoginUser.objects.filter(user_id=serializer.data["user_id"]).first()

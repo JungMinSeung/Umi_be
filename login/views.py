@@ -31,7 +31,7 @@ class RegistUser(APIView):
             )
             return Response(data)
         
-        if UserInfo.object.filter(phone_number=serializer.data["phone_number"]).exists():
+        if UserInfo.objects.filter(phone_number=serializer.data["phone_number"]).exists():
             user = UserInfo.objects.filter(phone_number=serializer.data["phone_number"]).first()
             data = dict(
                 msg="이미 가입 된 전화번호입니다.",

@@ -1,2 +1,3 @@
 venv
-./umi_be/settings.py
+Umi_be/.gitignore
+Umi_be/umi_be/settings.py

@@ -87,7 +87,6 @@ WSGI_APPLICATION = 'umi_be.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE' : 'django.db.backends.mysql',
-        'HOST' : '3.38.6.103',
         'NAME' : 'sora_db',
         'USER' : 'root',
         'PASSWORD' : 'admin123!',

@@ -1,3 +1,7 @@
 venv
-Umi_be/.gitignore
 Umi_be/umi_be/settings.py
+Umi_be/login/__pycache__
+Umi_be/login/migrations
+Umi_be/umi_be/__pycache__
+Umi_be/umi_be/app/migrations
+Umi_be/umi_be/app/__pycache__

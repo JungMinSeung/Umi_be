@@ -6,12 +6,12 @@ from .serializer import UserSerializer
 
 class AppLogin(APIView):
     def post(self, request):
-        user_id = request.data.get('user_id', "")
+        email = request.data.get('email', "")
         user_pw = request.data.get('user_pw', "")
-        user = UserInfo.objects.filter(user_id=user_id).first()
+        user = UserInfo.objects.filter(email=email).first()
         
         if user is None:
-            return Response(dict(msg="해당 ID의 사용자가 없습니다."))
+            return Response(dict(msg="해당 email의 사용자가 없습니다."))
         if check_password(user_pw, user.user_pw) is False:
             return Response(dict(msg="로그인 성공", user_id=user.user_id, university=user.university,
                                 student_id=user.student_id, department=user.department, description=user.description))
@@ -21,15 +21,6 @@ class AppLogin(APIView):
 class RegistUser(APIView):
     def post(self, request):
         serializer = UserSerializer(request.data)
-        
-        if UserInfo.objects.filter(user_id=serializer.data["user_id"]).exists():
-            user = UserInfo.objects.filter(user_id=serializer.data["user_id"]).first()
-            data = dict(
-                msg="이미 존재하는 ID입니다.",
-                user_id=user.user_id,
-                user_pw=user.user_pw,
-            )
-            return Response(data)
         
         if UserInfo.objects.filter(email=serializer.data["email"]).exists():
             user = UserInfo.objects.filter(email=serializer.data["email"]).first()

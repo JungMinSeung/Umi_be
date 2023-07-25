@@ -1,7 +1,7 @@
 from django.db import models
 
 class UserInfo(models.Model):
-    user_id = models.CharField(max_length=20, null=False, default=False)
+    user_id = models.AutoField(primary_key=True)
     email = models.EmailField(verbose_name='이메일', max_length=255, null=False, default="")
     user_pw = models.CharField(max_length=255, null=False, default=False)
     gender = models.CharField(verbose_name='성별', max_length=10, null=False, default='male')
